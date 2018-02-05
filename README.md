@@ -8,6 +8,8 @@
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)](https://opensource.org/licenses/Apache-2.0)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/amitshekhariitbhu/RxJava2-Android-Samples/blob/master/LICENSE)
 
+### [Get the complete RxJava Course Here](https://mindorks.com/course/learn-rxjava)
+
 ## How to use RxJava 2 in Android Application
 ## How to migrate from RxJava 1.0 to RxJava 2.0
 
@@ -33,7 +35,7 @@ Users switching from 1.x to 2.x have to re-organize their imports, but carefully
 
 Add this in your build.gradle
 ```groovy
-compile 'io.reactivex.rxjava2:rxjava:2.0.6'
+compile 'io.reactivex.rxjava2:rxjava:2.1.1'
 ```
 If you are using RxAndroid also, then add the following
 ```groovy
@@ -100,9 +102,10 @@ RxJava1 -> RxJava2
 * [MergeExampleActivity](https://github.com/amitshekhariitbhu/RxJava2-Android-Samples/blob/master/app/src/main/java/com/rxjava2/android/samples/ui/operators/MergeExampleActivity.java) - Using `merge` Operator
 * [DeferExampleActivity](https://github.com/amitshekhariitbhu/RxJava2-Android-Samples/blob/master/app/src/main/java/com/rxjava2/android/samples/ui/operators/DeferExampleActivity.java) - Using `defer` Observable
 * [IntervalExampleActivity](https://github.com/amitshekhariitbhu/RxJava2-Android-Samples/blob/master/app/src/main/java/com/rxjava2/android/samples/ui/operators/IntervalExampleActivity.java) - Using `Interval`
-* [RxBusActivity](https://github.com/amitshekhariitbhu/RxJava2-Android-Samples/blob/master/app/src/main/java/com/rxjava2/android/samples/ui/rxbus/RxBusActivity.java) - RxBus, RxJava2Bus, EventBus, RxEventBus
+* [RxBusActivity](https://github.com/amitshekhariitbhu/RxJava2-Android-Samples/blob/master/app/src/main/java/com/rxjava2/android/samples/ui/rxbus/RxBusActivity.java) - RxBus, RxJava2Bus, EventBus, RxEventBus, [Blog for reference](https://blog.mindorks.com/implementing-eventbus-with-rxjava-rxbus-e6c940a94bd8)
 * [PaginationActivity](https://github.com/amitshekhariitbhu/RxJava2-Android-Samples/blob/master/app/src/main/java/com/rxjava2/android/samples/ui/pagination/PaginationActivity.java) - Pagination for loadMore in RecyclerView
 * [ComposeOperatorExampleActivity](https://github.com/amitshekhariitbhu/RxJava2-Android-Samples/blob/master/app/src/main/java/com/rxjava2/android/samples/ui/compose/ComposeOperatorExampleActivity.java) - Compose operator for reusable
+* [Search Implementation](https://github.com/amitshekhariitbhu/RxJava2-Android-Samples/blob/master/app/src/main/java/com/rxjava2/android/samples/ui/search/SearchActivity.java) - Using `debounce`, `switchMap`, `distinctUntilChanged`, [Blog for reference](https://blog.mindorks.com/implement-search-using-rxjava-operators-c8882b64fe1d)
 
 ### TODO 
 
@@ -113,6 +116,9 @@ RxJava1 -> RxJava2
 
 ### Check out an awesome MVP architecture based project which uses RxJava2, Dagger2.
 * [Android-MVP-Architecture](https://github.com/MindorksOpenSource/android-mvp-architecture)
+
+### Check out an awesome Kotlin MVP architecture based project which uses RxJava2, Dagger2.
+* [Android-Kotlin-MVP-Architecture](https://github.com/MindorksOpenSource/android-kotlin-mvp-architecture)
 
 ### Check out an awesome library for fast and simple networking in Android.
 * [Fast Android Networking Library](https://github.com/amitshekhariitbhu/Fast-Android-Networking)
