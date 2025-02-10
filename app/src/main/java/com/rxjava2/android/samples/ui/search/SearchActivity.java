@@ -1,9 +1,10 @@
 package com.rxjava2.android.samples.ui.search;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.SearchView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.rxjava2.android.samples.R;
 
@@ -32,8 +33,8 @@ public class SearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        searchView = (SearchView) findViewById(R.id.searchView);
-        textViewResult = (TextView) findViewById(R.id.textViewResult);
+        searchView = findViewById(R.id.searchView);
+        textViewResult = findViewById(R.id.textViewResult);
 
         setUpSearchObservable();
     }
@@ -43,7 +44,7 @@ public class SearchActivity extends AppCompatActivity {
                 .debounce(300, TimeUnit.MILLISECONDS)
                 .filter(new Predicate<String>() {
                     @Override
-                    public boolean test(String text) throws Exception {
+                    public boolean test(String text) {
                         if (text.isEmpty()) {
                             textViewResult.setText("");
                             return false;
@@ -55,15 +56,20 @@ public class SearchActivity extends AppCompatActivity {
                 .distinctUntilChanged()
                 .switchMap(new Function<String, ObservableSource<String>>() {
                     @Override
-                    public ObservableSource<String> apply(String query) throws Exception {
-                        return dataFromNetwork(query);
+                    public ObservableSource<String> apply(String query) {
+                        return dataFromNetwork(query)
+                                .doOnError(throwable -> {
+                                    // handle error
+                                })
+                                // continue emission in case of error also
+                                .onErrorReturn(throwable -> "");
                     }
                 })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<String>() {
                     @Override
-                    public void accept(String result) throws Exception {
+                    public void accept(String result) {
                         textViewResult.setText(result);
                     }
                 });
@@ -77,7 +83,7 @@ public class SearchActivity extends AppCompatActivity {
                 .delay(2, TimeUnit.SECONDS)
                 .map(new Function<Boolean, String>() {
                     @Override
-                    public String apply(@NonNull Boolean value) throws Exception {
+                    public String apply(@NonNull Boolean value) {
                         return query;
                     }
                 });
